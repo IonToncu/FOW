@@ -1,48 +1,66 @@
 package com.fisproject.entity;
 
 import com.fisproject.entity.project.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.LinkedList;
 import java.util.List;
 
 @Component //creating spring bean
+@Scope("singleton")
 public class Designer extends Person implements Actor {
+
     private List<Project> projectList=new LinkedList<>();
-
-    public Designer(LinkedList<Project> project){
+    @Autowired
+    public Designer(@Autowired List<Project> project,@Value("${designer.firstName}") String name,@Value("${designer.lastName}") String lastName){
         this.projectList=project;
-    }
-    public Designer(){}
-    private void initMethod(){
-        System.out.println("<<was called init method>>");
+        this.lastName=lastName;
+        this.firstName=name;
     }
 
+
+    private Machinery newProject(){return new Machinery();}
+
+    private LinkedList<Project> Projects(){
+        LinkedList<Project> projects=new LinkedList<>();
+        projects.add(new DecorElement());
+        projects.add(new Furniture());
+        projects.add(new Machinery());
+        return projects;
+    }
     public void showProject(ProjectEntity entity){
        switch (entity){
            case DECOR:{
                 for(Project project:projectList){
                     if(project instanceof DecorElement){
-                        project.printProject();
+                        System.out.println(project.printProject());
                     }
                 }
+                break;
+
            }
            case FURNITURE:{
                for(Project project:projectList){
                    if(project instanceof Furniture){
-                       project.printProject();
+                       System.out.println(project.printProject());
                    }
                }
+               break;
            }
            case MACHINERY:{
                for(Project project:projectList){
                    if(project instanceof Machinery){
-                       project.printProject();
+                       System.out.println(project.printProject());
                    }
                }
-
+                break;
            }
            default:System.out.println("Doesn't exist");
        }
@@ -62,7 +80,14 @@ public class Designer extends Person implements Actor {
                 "designers and their projects,and if customer chose" +
                 "this product from company he receives a discounts");
     }
-
+    @PostConstruct
+    public void initMethod(){
+        System.out.println("was called init method");
+    }
+    @PreDestroy
+    public void destroyMethod(){
+        System.out.println("was called destroy method");
+    }
     @Override
     public String toString() {
         return "Designer{" +

@@ -12,9 +12,9 @@ public class Furniture implements Project{
     @Autowired
     public Furniture(){
         sendProjects(new String[]{
-                "wardrobe",
-                "chair",
-                "table"
+                "wardrobe ",
+                "chair ",
+                "table "
         });
     }
     @Override

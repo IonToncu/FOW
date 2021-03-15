@@ -3,7 +3,11 @@ package com.fisproject;
 import com.fisproject.entity.Designer;
 import com.fisproject.entity.project.DecorElement;
 import com.fisproject.entity.project.Project;
+import com.fisproject.entity.project.ProjectEntity;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import static com.fisproject.entity.project.ProjectEntity.DECOR;
+import static com.fisproject.entity.project.ProjectEntity.FURNITURE;
 
 /**
  * @author IonTsonku
@@ -16,8 +20,10 @@ public class App {
 //
 //        Designer designer=context.getBean("designer",Designer.class);
 //        System.out.println(designer);
-        DecorElement project=context.getBean("decorElement", DecorElement.class);
-        System.out.println(project.printProject());
+        Designer designer=context.getBean("designer", Designer.class);
+        designer.showProject(FURNITURE);
+        designer.showProject(DECOR);
+        System.out.println(designer);
         context.close();
 
 

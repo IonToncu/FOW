@@ -11,9 +11,9 @@ public class Machinery implements Project{
     @Autowired
     public Machinery(){
         sendProjects(new String[]{
-                "machine",
-                "chisel",
-                "drill"
+                "machine ",
+                "chisel ",
+                "drill "
         });
     }
     @Override
