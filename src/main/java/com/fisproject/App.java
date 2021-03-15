@@ -1,6 +1,7 @@
 package com.fisproject;
 
 import com.fisproject.entity.Designer;
+import com.fisproject.entity.project.DecorElement;
 import com.fisproject.entity.project.Project;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -12,19 +13,13 @@ public class App {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 //        Project project=context.getBean("testBean", Project.class);
 
-        /**
-         * inversion of control
-         *  IOC
-         * */
-        Designer designer = context.getBean("designer", Designer.class);
-        designer.showProject();
-        System.out.println(designer);
-        designer.setFirstName("Vasea");// here was used singleton b
-        Designer designer1 = context.getBean("designer", Designer.class);
-        designer.showProject();
-        System.out.println(designer);
+//
+//        Designer designer=context.getBean("designer",Designer.class);
+//        System.out.println(designer);
+        DecorElement project=context.getBean("decorElement", DecorElement.class);
+        System.out.println(project.printProject());
         context.close();
-        String string = new String("ceva");
-        System.out.println(string);
+
+
     }
 }
