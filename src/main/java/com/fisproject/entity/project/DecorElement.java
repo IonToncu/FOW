@@ -3,11 +3,13 @@ package com.fisproject.entity.project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.LinkedList;
 import java.util.List;
-
+@Entity
 @Component
-public class DecorElement implements Project{
+public class DecorElement extends Project{
     List<String> decorElements=new LinkedList<>();
     @Autowired
     public DecorElement() {

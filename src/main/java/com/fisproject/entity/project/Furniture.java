@@ -3,18 +3,20 @@ package com.fisproject.entity.project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.LinkedList;
 import java.util.List;
-
+@Entity
 @Component
-public class Furniture implements Project{
+public class Furniture extends Project{
     List<String> furniture=new LinkedList<>();
     @Autowired
     public Furniture(){
         sendProjects(new String[]{
-                "wardrobe",
-                "chair",
-                "table"
+                "wardrobe ",
+                "chair ",
+                "table "
         });
     }
     @Override

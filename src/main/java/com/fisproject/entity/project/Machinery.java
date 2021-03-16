@@ -3,17 +3,20 @@ package com.fisproject.entity.project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.LinkedList;
 import java.util.List;
+@Entity
 @Component
-public class Machinery implements Project{
+public class Machinery extends Project{
     List<String> machineryList=new LinkedList<>();
     @Autowired
     public Machinery(){
         sendProjects(new String[]{
-                "machine",
-                "chisel",
-                "drill"
+                "machine ",
+                "chisel ",
+                "drill "
         });
     }
     @Override
