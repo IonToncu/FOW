@@ -2,7 +2,7 @@ package com.fisproject.entity.project;
 
 import javax.persistence.*;
 
-@Entity(name="project")
+@Entity(name="Project")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TYPE_OF_PROJECT",
                      discriminatorType = DiscriminatorType.STRING )

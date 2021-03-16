@@ -22,6 +22,10 @@
         <mapping class="com.fisproject.entity.project.DecorElement"></mapping>
         <mapping class="com.fisproject.entity.project.Machinery"></mapping>
         <mapping class="com.fisproject.entity.project.Furniture"></mapping>
+        <mapping class="com.fisproject.entity.Designer"></mapping>
+        <mapping class="com.fisproject.entity.Company"></mapping>
+        <mapping class="com.fisproject.entity.Customer"></mapping>
+
 
     </session-factory>
 </hibernate-configuration>

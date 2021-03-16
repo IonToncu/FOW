@@ -8,15 +8,26 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.persistence.*;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
+@Entity
+@Table(name = "DESIGNER")
 @Component //creating spring bean
 @Scope("singleton")
 public class Designer extends Person implements Actor {
-    private List<Project> projectList=new LinkedList<>();
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//primary key,are created to order    protected long id;
+    private long id;
+    @OneToMany()
+    private Set<Project> projectList;
+    @ManyToMany()
+    private Set<Company> collaboratingCompanies;
     @Autowired
-    public Designer(@Autowired List<Project> project,@Value("${designer.firstName}") String name,@Value("${designer.lastName}") String lastName){
+    public Designer(@Autowired Set<Project> project,@Value("${designer.firstName}") String name,@Value("${designer.lastName}") String lastName){
         this.projectList=project;
         this.lastName=lastName;
         this.firstName=name;
