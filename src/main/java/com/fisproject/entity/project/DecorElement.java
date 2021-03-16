@@ -3,41 +3,34 @@ package com.fisproject.entity.project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.LinkedList;
-import java.util.List;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
+@Entity
+@DiscriminatorValue("DECOR")
 @Component
-public class DecorElement implements Project{
-    List<String> decorElements=new LinkedList<>();
+public class DecorElement extends Project{
     @Autowired
     public DecorElement() {
-        sendProjects(new String[]{
-                "vase",
-                "curtains",
-                "lamp"
-        });
+        this.name="DecorElement";
+        this.description="do something";
+        this.type ="Decor";
     }
-
-    @Override
     public String printProject() {
-        StringBuilder rez= new StringBuilder();
-        for(String mash:decorElements){
-            rez.append(mash+" ");
-        }
-        return rez.toString();
+//        StringBuilder rez= new StringBuilder();
+//        for(String mash:decorElements){
+//            rez.append(mash+" ");
+//        }
+//        return rez.toString();
+        return null;
     }
 
-    @Override
     public void authorOfProject() {
         System.out.println("someone");
     }
-
-    @Override
     public void printSize() {
         System.out.println("not big not small");
     }
-
-    @Override
     public boolean sendProjects(String[] projects){
         if(projects.length!=0) {
             for (String pro : projects) addProject(pro);
@@ -46,12 +39,9 @@ public class DecorElement implements Project{
             return false;
         }
     }
-
-    @Override
     public void addProject(String name) {
-        decorElements.add(name);
+       // decorElements.add(name);
     }
-
     @Override
     public String toString() {
         return printProject();
