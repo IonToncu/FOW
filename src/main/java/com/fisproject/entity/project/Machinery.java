@@ -16,17 +16,17 @@ public class Machinery extends Project{
     //List<String> machineryList=new LinkedList<>();
     @Autowired
     public Machinery(){
-<<<<<<< HEAD
+
       this.name="machinery";
       this.description="do something";
       this.Type="Machinery";
-=======
+
         sendProjects(new String[]{
                 "machine ",
                 "chisel ",
                 "drill "
         });
->>>>>>> 1edee968b135b4a2807f29d86af832ce21a9ce17
+
     }
     public String printProject() {
 //        StringBuilder rez= new StringBuilder();
