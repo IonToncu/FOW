@@ -3,46 +3,41 @@ package com.fisproject.entity.project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.LinkedList;
 import java.util.List;
 @Entity
+@DiscriminatorValue("Furniture")
 @Component
 public class Furniture extends Project{
-    List<String> furniture=new LinkedList<>();
+//    List<String> furniture=new LinkedList<>();
     @Autowired
     public Furniture(){
-        sendProjects(new String[]{
-                "wardrobe ",
-                "chair ",
-                "table "
-        });
+        this.name="Furniture";
+        this.description="do something";
+        this.Type="Furniture";
     }
-    @Override
     public String printProject() {
-        StringBuilder rez= new StringBuilder();
-        for(String mash:furniture){
-            rez.append(mash);
-        }
-        return rez.toString();
+//        StringBuilder rez= new StringBuilder();
+//        for(String mash:furniture){
+//            rez.append(mash);
+//        }
+//        return rez.toString();
+        return null;
     }
 
-    @Override
+
     public void authorOfProject() {
         System.out.println("I'm author");
     }
-
-    @Override
     public void printSize() {
         System.out.println("50X50X50");
     }
-
-    @Override
     public void addProject(String name) {
-        furniture.add(name);
+        //furniture.add(name);
     }
-
     public boolean sendProjects(String[] projects){
         if(projects.length!=0) {
             for (String pro : projects) addProject(pro);
@@ -55,7 +50,11 @@ public class Furniture extends Project{
 
     @Override
     public String toString() {
-        return printProject();
+        return "Furniture{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", Type='" + Type + '\'' +
+                '}';
     }
 }
 

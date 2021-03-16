@@ -2,23 +2,52 @@ package com.fisproject.entity.project;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "DECOR_ELEMENT")
-@Inheritance(strategy =  )
-public abstract class Project {
+@Entity(name="project")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TYPE_OF_PROJECT",
+                     discriminatorType = DiscriminatorType.STRING )
+public abstract  class Project {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//primary key,are created to order    protected long id;
     protected long id;
-    @Column(name="NAME")
     protected String name;
-    @Column(name = "DESCRIPTION")
     protected String description;
-    @Column(name = "TYPE")
     protected String Type;
 
-    public abstract String printProject();
-    public abstract void authorOfProject();
-    public abstract void printSize();
-    public abstract void addProject(String name);
-    public abstract boolean sendProjects(String[] projects);
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getType() {
+        return Type;
+    }
+
+    public void setType(String type) {
+        Type = type;
+    }
+//    public abstract String printProject();
+//    public abstract void authorOfProject();
+//    public abstract void printSize();
+//    public abstract void addProject(String name);
+//    public abstract boolean sendProjects(String[] projects);
 }

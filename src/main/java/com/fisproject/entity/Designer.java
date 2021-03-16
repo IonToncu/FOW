@@ -13,19 +13,14 @@ import javax.annotation.PreDestroy;
 import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
-@Entity
-@Table(name = "DESIGNER")
+
 @Component //creating spring bean
 @Scope("singleton")
 public class Designer  implements Actor {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
-    @Column(name = "FIRST_NAME")
     protected String firstName;
-    @Column(name = "LAST_NAME")
     protected String lastName;
-    @Column(name = "AGE")
     protected int age;
     private List<Project> projectList=new LinkedList<>();
     @Autowired
@@ -50,7 +45,7 @@ public class Designer  implements Actor {
            case DECOR:{
                 for(Project project:projectList){
                     if(project instanceof DecorElement){
-                        System.out.println(project.printProject());
+                        //System.out.println(project.printProject());
                     }
                 }
                 break;
@@ -59,7 +54,7 @@ public class Designer  implements Actor {
            case FURNITURE:{
                for(Project project:projectList){
                    if(project instanceof Furniture){
-                       System.out.println(project.printProject());
+                      // System.out.println(project.printProject());
                    }
                }
                break;
@@ -67,7 +62,7 @@ public class Designer  implements Actor {
            case MACHINERY:{
                for(Project project:projectList){
                    if(project instanceof Machinery){
-                       System.out.println(project.printProject());
+                       //System.out.println(project.printProject());
                    }
                }
                 break;
@@ -90,14 +85,14 @@ public class Designer  implements Actor {
                 "designers and their projects,and if customer chose" +
                 "this product from company he receives a discounts");
     }
-    @PostConstruct
-    public void initMethod(){
-        System.out.println("was called init method");
-    }
-    @PreDestroy
-    public void destroyMethod(){
-        System.out.println("was called destroy method");
-    }
+//    @PostConstruct//apar indiferent de creaea obiectului
+//    public void initMethod(){
+//        System.out.println("was called init method");
+//    }
+//    @PreDestroy
+//    public void destroyMethod(){
+//        System.out.println("was called destroy method");
+//    }
     @Override
     public String toString() {
         return "Designer{" +

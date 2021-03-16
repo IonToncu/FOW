@@ -5,19 +5,13 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "CUSTOMER")
 @Component //creating spring bean
 @Scope("singleton")
 public class Customer  implements Actor{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
-    @Column(name = "FIRST_NAME")
     protected String firstName;
-    @Column(name = "LAST_NAME")
     protected String lastName;
-    @Column(name = "AGE")
     protected int age;
 
     @Override
