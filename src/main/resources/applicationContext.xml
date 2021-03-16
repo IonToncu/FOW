@@ -30,6 +30,11 @@
 <!--        <constructor-arg index="1" ref="furniture"/>-->
 <!--        <property name="firstName" value="Vasea"/>-->
 <!--    </bean>-->
+<<<<<<< HEAD
 <!--<context:component-scan base-package="com.fisproject.entity"/>-->
 <!--<context:property-placeholder location="designerProperty.properties"/>-->
+=======
+<context:component-scan base-package="com.fisproject.entity"/>
+<context:property-placeholder location="designerProperty.properties"/>
+>>>>>>> 1edee968b135b4a2807f29d86af832ce21a9ce17
 </beans>

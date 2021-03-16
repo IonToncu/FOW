@@ -15,9 +15,17 @@ public class Furniture extends Project{
 //    List<String> furniture=new LinkedList<>();
     @Autowired
     public Furniture(){
+<<<<<<< HEAD
         this.name="Furniture";
         this.description="do something";
         this.Type="Furniture";
+=======
+        sendProjects(new String[]{
+                "wardrobe ",
+                "chair ",
+                "table "
+        });
+>>>>>>> 1edee968b135b4a2807f29d86af832ce21a9ce17
     }
     public String printProject() {
 //        StringBuilder rez= new StringBuilder();
