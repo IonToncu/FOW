@@ -5,9 +5,7 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.util.LinkedList;
-import java.util.List;
+
 @Entity
 @DiscriminatorValue("Furniture")
 @Component
@@ -18,7 +16,7 @@ public class Furniture extends Project{
 
         this.name="Furniture";
         this.description="do something";
-        this.Type="Furniture";
+        this.type ="Furniture";
 
         sendProjects(new String[]{
                 "wardrobe ",
@@ -61,7 +59,7 @@ public class Furniture extends Project{
         return "Furniture{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", Type='" + Type + '\'' +
+                ", Type='" + type + '\'' +
                 '}';
     }
 }

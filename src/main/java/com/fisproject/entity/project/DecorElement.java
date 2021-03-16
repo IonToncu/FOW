@@ -5,9 +5,7 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.util.LinkedList;
-import java.util.List;
+
 @Entity
 @DiscriminatorValue("DECOR")
 @Component
@@ -16,7 +14,7 @@ public class DecorElement extends Project{
     public DecorElement() {
         this.name="DecorElement";
         this.description="do something";
-        this.Type="Decor";
+        this.type ="Decor";
     }
     public String printProject() {
 //        StringBuilder rez= new StringBuilder();

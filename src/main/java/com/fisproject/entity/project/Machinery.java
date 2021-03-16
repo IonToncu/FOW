@@ -3,12 +3,9 @@ package com.fisproject.entity.project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.util.LinkedList;
-import java.util.List;
+
 @Entity
 @DiscriminatorValue("Machinery")
 @Component
@@ -19,7 +16,7 @@ public class Machinery extends Project{
 
       this.name="machinery";
       this.description="do something";
-      this.Type="Machinery";
+      this.type ="Machinery";
 
         sendProjects(new String[]{
                 "machine ",

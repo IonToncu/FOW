@@ -12,7 +12,7 @@ public abstract  class Project {
     protected long id;
     protected String name;
     protected String description;
-    protected String Type;
+    protected String type;
 
     public long getId() {
         return id;
@@ -39,11 +39,11 @@ public abstract  class Project {
     }
 
     public String getType() {
-        return Type;
+        return type;
     }
 
     public void setType(String type) {
-        Type = type;
+        this.type = type;
     }
 //    public abstract String printProject();
 //    public abstract void authorOfProject();
