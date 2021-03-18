@@ -11,22 +11,30 @@
 <!--          class="com.fisproject.entity.project.Project">-->
 <!--        <constructor-arg value="Neil"/>-->
 <!--    </bean>-->
-    <bean id="decor"
-          class="com.fisproject.entity.project.DecorElement">
-    </bean>
-    <bean id="furniture"
-          class="com.fisproject.entity.project.Furniture">
-    </bean>
-    <bean id="designer"
-            class="com.fisproject.entity.Designer">
-        <constructor-arg index="0">
-           <array>
-               <value>Ion</value>
-               <value>Tsonku</value>
-           </array>
-        </constructor-arg>
-        <constructor-arg index="1" ref="furniture"/>
-        <property name="firstName" value="Vasea"/>
-    </bean>
-
+<!--    <bean id="decor"-->
+<!--          class="com.fisproject.entity.project.DecorElement">-->
+<!--    </bean>-->
+<!--    <bean id="furniture"-->
+<!--          class="com.fisproject.entity.project.Furniture">-->
+<!--    </bean>-->
+<!--    <bean id="designer"-->
+<!--          init-method="initMethod"-->
+<!--          scope="prototype"-->
+<!--            class="com.fisproject.entity.Designer">-->
+<!--        <constructor-arg index="0">-->
+<!--           <array>-->
+<!--               <value>Ion</value>-->
+<!--               <value>Tsonku</value>-->
+<!--           </array>-->
+<!--        </constructor-arg>-->
+<!--        <constructor-arg index="1" ref="furniture"/>-->
+<!--        <property name="firstName" value="Vasea"/>-->
+<!--    </bean>-->
+<<<<<<< HEAD
+<!--<context:component-scan base-package="com.fisproject.entity"/>-->
+<!--<context:property-placeholder location="designerProperty.properties"/>-->
+=======
+<context:component-scan base-package="com.fisproject.entity"/>
+<context:property-placeholder location="designerProperty.properties"/>
+>>>>>>> 1edee968b135b4a2807f29d86af832ce21a9ce17
 </beans>

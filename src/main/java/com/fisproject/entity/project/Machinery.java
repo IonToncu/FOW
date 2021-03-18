@@ -7,29 +7,41 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("DECOR")
+@DiscriminatorValue("Machinery")
 @Component
-public class DecorElement extends Project{
+public class Machinery extends Project{
+    //List<String> machineryList=new LinkedList<>();
     @Autowired
-    public DecorElement() {
-        this.name="DecorElement";
-        this.description="do something";
-        this.type ="Decor";
+    public Machinery(){
+
+      this.name="machinery";
+      this.description="do something";
+      this.type ="Machinery";
+
+        sendProjects(new String[]{
+                "machine ",
+                "chisel ",
+                "drill "
+        });
+
     }
     public String printProject() {
 //        StringBuilder rez= new StringBuilder();
-//        for(String mash:decorElements){
-//            rez.append(mash+" ");
-//        }
-//        return rez.toString();
+//      for(String mash:machineryList){
+//          rez.append(mash);
+//      }
+//      return rez.toString();
         return null;
     }
 
     public void authorOfProject() {
-        System.out.println("someone");
+
     }
     public void printSize() {
-        System.out.println("not big not small");
+
+    }
+    public void addProject(String name) {
+       // machineryList.add(name);
     }
     public boolean sendProjects(String[] projects){
         if(projects.length!=0) {
@@ -38,12 +50,5 @@ public class DecorElement extends Project{
         }else{
             return false;
         }
-    }
-    public void addProject(String name) {
-       // decorElements.add(name);
-    }
-    @Override
-    public String toString() {
-        return printProject();
     }
 }
